@@ -1,0 +1,11 @@
+server:
+  port: 7702
+  servlet:
+    context-path: /upcashier
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.30:3306/springcloud_order?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: ZhangFang
+    password: LM(i+w98IvgIxr9/1HogFx9K0as6cMWTdq0vUdsNjT+w9o++YPpVz8y1NmgSlkw1RUr)
