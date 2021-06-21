@@ -13,11 +13,11 @@
     <artifactId>SpringCloudDemos</artifactId>
     <version>1.0.0</version>
     <modules>
-        <module>cloud-user-provider</module>
+        <module>cloud-user-center</module>
     </modules>
     <packaging>pom</packaging>
     <name>SpringCloudDemos</name>
-    <description>银联账房大人</description>
+    <description>springcloud测试项目</description>
 
     <properties>
         <java.version>1.8</java.version>

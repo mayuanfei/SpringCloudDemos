@@ -1,0 +1,12 @@
+server:
+  port: 7000
+  servlet:
+    context-path: /usercenter
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.176:3306/springcloud_user?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+
