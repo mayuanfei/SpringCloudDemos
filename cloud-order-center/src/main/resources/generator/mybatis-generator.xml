@@ -43,7 +43,10 @@
         </javaClientGenerator>
 
         <!-- 对应的表名 -->
-        <table tableName="user_info" >
+        <table tableName="order_master" >
+        </table>
+        <table tableName="order_detail" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>
