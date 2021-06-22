@@ -23,7 +23,7 @@ spring:
       connection-test-query: select 1 from dual
   #微服务相关
   application:
-    name: user-center  #服务名称
+    name: order-center  #服务名称
   cloud:
     nacos:
       discovery:

@@ -30,4 +30,7 @@ public class UserInfoResponse {
      */
     private Integer bonus;
 
+    //头像
+    private String avatarUrl;
+
 }

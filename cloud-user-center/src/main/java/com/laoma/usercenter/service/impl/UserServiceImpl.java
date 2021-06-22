@@ -1,10 +1,8 @@
 package com.laoma.usercenter.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.laoma.usercenter.common.CommonResponse;
 import com.laoma.usercenter.dao.entity.UserInfo;
 import com.laoma.usercenter.dao.mapper.UserInfoMapper;
-import com.laoma.usercenter.dto.request.UserInfoAppendRequest;
 import com.laoma.usercenter.dto.response.UserInfoResponse;
 import com.laoma.usercenter.service.UserService;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,6 @@ public class UserServiceImpl implements UserService {
     private UserInfoMapper userInfoMapper;
 
     /**
-     * @param id
      * @Description:通过id获得用户信息
      * @param: id
      * @return: com.laoma.provider.dao.pojo.UserInfo
@@ -32,18 +29,14 @@ public class UserServiceImpl implements UserService {
      * @Date: 2021/6/21 14:33
      */
     @Override
-    public UserInfoResponse getUserInfoById(Integer id) {
-        UserInfo userInfo = this.userInfoMapper.selectByPrimaryKey(id);
+    public UserInfoResponse getUserInfoByWxId(String wxid) {
+        //通过微信id进行查询
+        UserInfo userInfo = this.userInfoMapper.selectUserInfoByWxId(wxid);
+        if(userInfo == null) {
+            return null;
+        }
         //转换成dto对象
         UserInfoResponse userInfoResp = JSON.parseObject(JSON.toJSONString(userInfo), UserInfoResponse.class);
         return userInfoResp;
-    }
-
-    @Override
-    public CommonResponse appendUserInfo(UserInfoAppendRequest request) throws Exception {
-        //把dto对象转换为数据库对象
-        UserInfo userInfo = JSON.parseObject(JSON.toJSONString(request), UserInfo.class);
-        this.userInfoMapper.insertSelective(userInfo);
-        return CommonResponse.buildSuccessCommonResponse();
     }
 }

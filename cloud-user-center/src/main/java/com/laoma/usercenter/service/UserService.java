@@ -1,7 +1,5 @@
 package com.laoma.usercenter.service;
 
-import com.laoma.usercenter.common.CommonResponse;
-import com.laoma.usercenter.dto.request.UserInfoAppendRequest;
 import com.laoma.usercenter.dto.response.UserInfoResponse;
 
 /**
@@ -19,8 +17,7 @@ public interface UserService {
     * @author: 老马
     * @Date: 2021/6/21 14:33
     */
-    UserInfoResponse getUserInfoById(Integer id);
+    UserInfoResponse getUserInfoByWxId(String id);
 
-    CommonResponse appendUserInfo(UserInfoAppendRequest request) throws Exception;
 }
 

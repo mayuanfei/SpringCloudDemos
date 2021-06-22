@@ -28,6 +28,10 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.0.160:8848
+#mybatis启用驼峰命名
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
 logging:
   level:
     com.laoma.usercenter.dao.mapper: debug
