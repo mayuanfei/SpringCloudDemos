@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    hikari:
+      # 最小空闲连接数量
+      minimum-idle: 2
+      # 空闲连接最大存活时间（毫秒）。默认是600000，10分钟。这里设置3分钟
+      idle-timeout: 180000
+      # 最大连接数，默认是10
+      maximum-pool-size: 20
+      # 连接池返回的连接，是否自动提交。默认是true
+      auto-commit: true
+      # 连接池的名称.出现在日志记录和JMX管理控制台中，用以识别连接池和配置
+      pool-name: user-center-hikari
+      # 连接池中的连接最长生命周期。0：表示无限生命；默认1800000毫秒，30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间，默认30000，也就是30秒超时
+      connection-timeout: 30000
+      # 如果驱动支持JDBC4，强烈建议不要设置此属性
+      connection-test-query: select 1 from dual
+  #微服务相关
+  application:
+    name: order-center  #服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.160:8848
+      config:
+        server-addr: 192.168.0.160:8848
+        file-extension: yaml  # 必须修改成yaml
+        #指定开发环境的命名空间,这里要使用命名空间ID而不是名字dev
+        namespace: 6fa4935b-86be-43d4-92c0-3b5ec8e96125
+        #所属分组。属于商场演示项目
+        group: mall-demo
+logging:
+  level:
+    com.laoma.usercenter.dao.mapper: debug
+# 指定调用用户中心
+service:
+  nacos-user-service: user-center

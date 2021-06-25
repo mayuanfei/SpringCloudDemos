@@ -1,5 +1,6 @@
 package com.laoma.ordercenter.service;
 
+import com.laoma.ordercenter.dao.entity.OrderMaster;
 import com.laoma.ordercenter.dto.response.OrderSearchResponse;
 
 /**
@@ -18,5 +19,14 @@ public interface OrderService {
     * @Date: 2021/6/22 14:16
     */
     OrderSearchResponse orderQuery(String orderId);
+
+    /**
+    * @Description: 通过id获得订单主信息
+    * @param: orderid
+    * @return: com.laoma.ordercenter.dao.entity.OrderMaster
+    * @author: 老马
+    * @Date: 2021/6/25 9:34
+    */
+    OrderMaster orderQueryById(String orderid);
 }
 
