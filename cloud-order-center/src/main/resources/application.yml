@@ -1,3 +1,14 @@
 spring:
   profiles:
     active: dev
+
+#user-center:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+#开启饥饿加载模式
+ribbon:
+  eager-load:
+    enabled: true
+    #这里可以细颗粒度的设置哪些微服务需要开启饥饿加载模式
+    clients: user-center
