@@ -28,6 +28,13 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.0.160:8848
+        #设置集群BJ/SH
+        cluster-name: BJ
+        #设置实例的元数据
+        metadata:
+          instance: usercenter
+          version: 1.0
+          haha: hehe
 #mybatis启用驼峰命名
 mybatis:
   configuration:

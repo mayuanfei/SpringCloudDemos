@@ -1,7 +1,12 @@
 spring:
   profiles:
     active: dev
-
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.160:8848
+        #设置集群
+        cluster-name: BJ
 #user-center:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

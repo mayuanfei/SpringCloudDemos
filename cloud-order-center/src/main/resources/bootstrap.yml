@@ -22,8 +22,6 @@ spring:
     name: order-center  #服务名称
   cloud:
     nacos:
-      discovery:
-        server-addr: 192.168.0.160:8848
       config:
         server-addr: 192.168.0.160:8848
         file-extension: yaml  # 必须修改成yaml
@@ -31,6 +29,7 @@ spring:
         namespace: 6fa4935b-86be-43d4-92c0-3b5ec8e96125
         #所属分组。属于商场演示项目
         group: mall-demo
+
 logging:
   level:
     com.laoma.usercenter.dao.mapper: debug
