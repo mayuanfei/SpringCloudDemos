@@ -2,13 +2,12 @@ package com.laoma.ordercenter.controller;
 
 import com.laoma.ordercenter.common.CommonResponse;
 import com.laoma.ordercenter.dao.entity.OrderMaster;
+import com.laoma.ordercenter.dto.request.OrderSearchRequest;
 import com.laoma.ordercenter.dto.response.OrderSearchResponse;
 import com.laoma.ordercenter.service.OrderService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -36,6 +35,33 @@ public class OrderController {
     public OrderSearchResponse orderQuery(@PathVariable("id") String orderId) throws Exception {
         return this.orderService.orderQuery(orderId);
     }
+
+    @RequestMapping("/info1.json")
+    public OrderSearchResponse orderQuery1(OrderSearchRequest request) throws Exception {
+        return this.orderService.orderQuery1(request);
+    }
+
+    @RequestMapping("/{id}/info2.json")
+    public OrderSearchResponse orderQuery2(@PathVariable("id") String orderId, OrderSearchRequest request) throws Exception {
+        request.setOrderId(orderId);
+        return this.orderService.orderQuery2(request);
+    }
+
+    @RequestMapping("/info3.json")
+    public OrderSearchResponse orderQuery3(OrderSearchRequest request) throws Exception {
+        return this.orderService.orderQuery3(request);
+    }
+
+    @PostMapping("/postinfo1.json")
+    public OrderSearchResponse postOrderQuery1(@RequestBody OrderSearchRequest request) throws Exception {
+        return this.orderService.postQuery1(request);
+    }
+
+    @PostMapping("/postinfo2.json")
+    public OrderSearchResponse postOrderQuery2(OrderSearchRequest request) throws Exception {
+        return this.orderService.postQuery2(request);
+    }
+
 
     //测试数据库密码更改是否生效
     @RequestMapping("/{id}/dbchangpwd.json")

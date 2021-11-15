@@ -30,9 +30,7 @@ spring:
         #所属分组。属于商场演示项目
         group: mall-demo
 
-logging:
-  level:
-    com.laoma.usercenter.dao.mapper: debug
+
 # 指定调用用户中心
 service:
   nacos-user-service: user-center

@@ -1,12 +1,10 @@
 package com.laoma.usercenter.controller;
 
+import com.laoma.usercenter.dto.request.UserInfoSearchRequest;
 import com.laoma.usercenter.dto.response.UserInfoResponse;
 import com.laoma.usercenter.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,5 +27,41 @@ public class UserController {
         log.info("请求到端口: {}", request.getRemotePort());
         return this.userService.getUserInfoByWxId(wxid);
     }
+
+    @GetMapping("/list1.json")
+    public UserInfoResponse getUserInfos1(UserInfoSearchRequest request) {
+        return this.userService.getUserInfos(request);
+    }
+
+    @GetMapping("/{wxid}/list2.json")
+    public UserInfoResponse getUserInfos2(@PathVariable String wxid, Integer id, String wxNickname) {
+        UserInfoSearchRequest request = UserInfoSearchRequest.builder().wxNickname(wxNickname).wxId(wxid).id(id).build();
+        return this.userService.getUserInfos(request);
+    }
+
+    @GetMapping("/list3.json")
+    public UserInfoResponse getUserInfos3(String wxid, String wxNickname) {
+        UserInfoSearchRequest request = new UserInfoSearchRequest();
+        request.setWxId(wxid);
+        request.setWxNickname(wxNickname);
+        return this.userService.getUserInfos(request);
+    }
+
+
+
+    //采用json格式
+    @PostMapping("/postlist1.json")
+    public UserInfoResponse postUserInfos1(@RequestBody UserInfoSearchRequest request) {
+        return this.userService.getUserInfos(request);
+    }
+
+
+    //采用form表单形式
+    @PostMapping("/postlist2.json")
+    public UserInfoResponse postUserInfos2(UserInfoSearchRequest request) {
+        return this.userService.getUserInfos(request);
+    }
+
+
 
 }

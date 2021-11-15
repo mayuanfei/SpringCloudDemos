@@ -3,6 +3,7 @@ package com.laoma.usercenter.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.laoma.usercenter.dao.entity.UserInfo;
 import com.laoma.usercenter.dao.mapper.UserInfoMapper;
+import com.laoma.usercenter.dto.request.UserInfoSearchRequest;
 import com.laoma.usercenter.dto.response.UserInfoResponse;
 import com.laoma.usercenter.service.UserService;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,18 @@ public class UserServiceImpl implements UserService {
         //转换成dto对象
         UserInfoResponse userInfoResp = JSON.parseObject(JSON.toJSONString(userInfo), UserInfoResponse.class);
         return userInfoResp;
+    }
+
+    /**
+     * @param request
+     * @Description: 通过请求参数进行查询
+     * @param: request
+     * @return: com.laoma.usercenter.dto.response.UserInfoResponse
+     * @author: 老马
+     * @Date: 2021/11/11 17:17
+     */
+    @Override
+    public UserInfoResponse getUserInfos(UserInfoSearchRequest request) {
+        return this.userInfoMapper.selectUserInfoByCondition(request);
     }
 }

@@ -16,12 +16,13 @@ import tk.mybatis.spring.annotation.MapperScan;
  **/
 @MapperScan(basePackages = "com.laoma.ordercenter.dao.mapper")
 @SpringBootApplication
+//@EnableFeignClients(defaultConfiguration = FeignConfiguration.class)
 @EnableFeignClients
 public class OrderCenterApplication {
+    
     public static void main(String[] args) {
         SpringApplication.run(OrderCenterApplication.class, args);
     }
-
     @Bean
     @LoadBalanced
     public RestTemplate getRestTemplate() {

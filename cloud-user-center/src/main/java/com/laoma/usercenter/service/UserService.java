@@ -1,5 +1,6 @@
 package com.laoma.usercenter.service;
 
+import com.laoma.usercenter.dto.request.UserInfoSearchRequest;
 import com.laoma.usercenter.dto.response.UserInfoResponse;
 
 /**
@@ -18,6 +19,15 @@ public interface UserService {
     * @Date: 2021/6/21 14:33
     */
     UserInfoResponse getUserInfoByWxId(String id);
+    
+    /** 
+    * @Description: 通过请求参数进行查询
+    * @param: request
+    * @return: com.laoma.usercenter.dto.response.UserInfoResponse
+    * @author: 老马
+    * @Date: 2021/11/11 17:17
+    */ 
+    UserInfoResponse getUserInfos(UserInfoSearchRequest request);
 
 }
 

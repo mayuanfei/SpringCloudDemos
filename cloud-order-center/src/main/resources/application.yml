@@ -17,3 +17,23 @@ ribbon:
     enabled: true
     #这里可以细颗粒度的设置哪些微服务需要开启饥饿加载模式
     clients: user-center
+
+#设置feign打印日志
+logging:
+  level:
+    com.laoma.ordercenter.feignclilent: debug
+
+#细颗粒执行feign打印级别
+#feign:
+#  client:
+#    config:
+#      #想要调用的微服务名称
+#      user-center:
+#        loggerLevel: FULL
+
+feign:
+  client:
+    config:
+      #全局配置
+      default:
+        loggerLevel: FULL
