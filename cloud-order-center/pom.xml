@@ -83,6 +83,14 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+
+        <!--==================================== -->
+        <!-- 引入Feign的Httpclient -->
+        <!--==================================== -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
